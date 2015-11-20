@@ -1,0 +1,23 @@
+<div class="row">
+  <h1 class="text-center">Welcome to PhotoMapper</h1>
+</div>
+<div class="row well"
+  <h3><%= link_to 'Mapper', mapper_path %></h3>
+</div>
+
+  <h3><%= link_to 'New Photo', new_photo_path %></h3>
+
+
+  <div class="container story_pics">
+  <% @photos.in_groups_of(4) do |group| %>
+    <div class="row">
+      <% group.compact.each do |photo| %>
+        <div class="col-md-3">
+          <%= link_to image_tag(photo.picture, :size => '200x200',class:"img-responsive"), photo%>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  
+  </div>
